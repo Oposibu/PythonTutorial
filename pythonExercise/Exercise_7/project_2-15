@@ -1,0 +1,212 @@
+from string import punctuation
+from math import floor, ceil
+from random import randint, choice
+
+'''
+# Exercise 7 No5
+words = input('enter a list of words:> ')
+list_word = words.split()
+new_wordlist = []
+for word in range(len(list_word)):
+    new_word = list_word[word][1:]
+    new_wordlist.append(new_word)
+print(new_wordlist)
+
+
+# Exercise 7 No6
+list = []
+list2 = []
+for i in range(50):
+    list.append(i)
+#print(list)
+ #b
+for j in range(51):
+    list2.append(j*j)
+#print(list2)
+
+#c
+
+alpha = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z']
+new_alpha = []
+for c in range(len(alpha)):
+    new_alpha.append(alpha[c]*(c+1))
+#print(new_alpha)
+
+#7
+
+L = [2, 4, 6, 8]
+M = [1, 3, 5, 7]
+N = []
+for i in range(len(L)):
+    sum = L[i]+M[i]
+    N.append(sum)
+#print(N)
+
+#No8
+num = eval(input('Enter a number:> '))
+factor = []
+if num > 0:
+    for i in range(num):
+        if num % (i+1) == 0:
+            factor.append((i+1))
+        else:
+            pass
+else:
+    print('enter a number greater than 0')
+#print(factor)
+
+#No9
+
+D1 = [1, 2, 3, 4, 5, 6]
+D2 = [1, 2, 3, 4, 5, 6]
+Count_list = []
+Sum1 = []
+percentage_list = []
+frequency_occurency = []
+for i in range(len(D1)):
+    for j in range(len(D1)):
+        Add = (i+1)+(j+1)
+        if Add in Sum1:
+            pass
+        else:
+            Sum1.append(Add)
+print(Sum1)
+for k in range(10000):
+    frequency = choice(Sum1)
+    frequency_occurency.append(frequency)
+for m in range(2, 13):
+    Count = frequency_occurency.count(m)
+    Count_list.append(Count)
+    percentage = (Count/10000)*100
+    round_percentage = round(percentage, 2)
+    percentage_list.append(round_percentage)
+print(Count_list)
+print(percentage_list)
+
+
+
+#roll_request = eval(input('How many times do you want to roll you dice:> '))
+percentage_list = []
+num_list = []
+Count_list = []
+for i in range(10):
+    num = randint(2, 12)
+    num_list.append(num)
+for j in range(2, 13):
+    Count = num_list.count(j)
+    Count_list.append(Count)
+    percentage = (Count/(roll_request))*100
+    percentage_round = round(percentage, 3)
+    percentage_list.append(percentage)
+for k in range(2,13):
+    print(f"{k} occures {Count_list[k-2] } times")
+    print(f"{percentage_list[k-2]:.2f}%")
+
+    # N10
+
+list_num = [1, 2, 3, 4, 5, 6]
+new_list = [0]*len(list_num)
+for i in range(len(list_num)):
+    new_list[(i+1)%len(list_num)] = list_num[i]
+print(new_list)
+
+#N 11
+num_ones = 10
+result = [1]
+for i in range(10):
+    result.append(1)
+    for j in range(i + 1):
+        result.append(0)
+    if i + 1 == 10:
+        result.append(1)
+#print(result)
+
+# N12
+
+num = []
+current_zeros = 0
+max_zeros = 0
+for i in range(100):
+    n = randint(0,1)
+    num.append(n)
+print(num)
+for n in num:
+    if n == 0:
+        current_zeros += 1
+        if current_zeros > max_zeros:
+            max_zeros = current_zeros
+    else:
+        current_zeros = 0
+print(f"longest zero is: {max_zeros}")
+
+# N13
+numbers = []
+new_num = 0
+sorted_number = []
+# to generate 10 random numbers
+for i in range(10):
+    num = randint(1, 10)
+    numbers.append(num)
+# code to print the occurence of the element once
+for n in range(10):
+    for num in numbers:
+        if numbers[n] == num:
+            new_num = numbers[n]
+            if new_num in sorted_number:
+                pass
+            else:
+                sorted_number.append(new_num)
+        else:
+            new_num = 0
+sorted_number.sort()
+print(numbers)
+print(sorted_number)
+
+# N14
+
+value = eval(input('Enter scale in feet:> '))
+scales = ['inches', 'yards', 'miles', 'milimeters', 'centimeters', 'meters', 'kilometers']
+num = [12, 0.3333333, 0.0001893, 304.8, 30.48, 0.3048, 0.000305]
+convert = input("Enter: 1 for 'inches', 2 for 'yards', 3 for 'miles', 4 for 'milimeters', 5 for 'centimeters', 6 for 'meters', 7 for 'kilometers':> ")
+convert = int(convert)
+for i in range(7):
+    if i + 1 == convert:
+        result = value * num[i]
+print(f"{value} feets = {result} {scales[convert - 1]} ")
+
+'''
+
+# N15
+
+alpha = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z']
+
+# Encrypt message code
+
+real_word = input('Enter a word:> ')
+words = real_word.lower()
+encrypt_message = ''
+shift_list = []
+for c in range(len(words)):
+    if words[c].isalpha():
+        shift = randint(1, 26)
+        shift_list.append(shift)
+        encrypt = alpha[(alpha.index(words[c])+shift)%26]
+        encrypt_message += encrypt
+    else:
+        encrypt_message += words[c]
+print(encrypt_message)
+
+# Descrypt message code
+
+descrypt_word = ''
+count = 0
+for w in range(len(words)):
+    if encrypt_message[w].isalpha():
+        descrypt = alpha[(alpha.index(encrypt_message[w])-shift_list[count])%26]
+        descrypt_word += descrypt
+        count += 1
+        if count == len(shift_list):
+            break
+    else:
+        descrypt_word += encrypt_message[w]
+print(descrypt_word)
